@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NaijaHistory | Nigerian Historical Milestones</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo-wrapper">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 400 100"
+          class="main-logo"
+        >
+          <!-- Icon -->
+          <rect x="10" y="10" width="80" height="80" rx="15" fill="#008751" />
+          <path
+            d="M30 35h40M30 50h40M30 65h20"
+            stroke="white"
+            stroke-width="6"
+            stroke-linecap="round"
+          />
+          <circle cx="65" cy="65" r="7" fill="#FFD700" />
+
+          <!-- Text -->
+          <text
+            x="110"
+            y="62"
+            font-family="serif"
+            font-weight="bold"
+            font-size="44"
+            fill="#1a1a1a"
+          >
+            Naija
+            <tspan fill="#008751">History</tspan>
+          </text>
+
+          <!-- Tagline -->
+          <text
+            x="112"
+            y="85"
+            font-family="sans-serif"
+            font-size="12"
+            letter-spacing="3"
+            fill="#666"
+            font-weight="600"
+          >
+            DIGITAL ARCHIVE • SINCE 1864
+          </text>
+        </svg>
+      </div>
+      <p>Chronological Milestones of Nigeria's History</p>
+    </header>
+
+    <div class="container">
+      <section class="search-section">
+        <form
+          class="search-group"
+          onsubmit="
+            event.preventDefault();
+            handleSearch();
+          "
+        >
+          <input
+            type="text"
+            id="keywordSearch"
+            placeholder="Search by event or person (e.g. Shagari, President)..."
+          />
+
+          <div class="range-inputs">
+            <input type="number" id="startYear" placeholder="Start Year" />
+            <input type="number" id="endYear" placeholder="End Year" />
+          </div>
+
+          <button type="submit">Search History</button>
+        </form>
+      </section>
+
+      <div
+        id="resultsCount"
+        style="margin-bottom: 1rem; font-size: 0.9rem; color: #666"
+      ></div>
+      <div id="milestoneList"></div>
+      <div id="pagination" class="pagination"></div>
+    </div>
+
+    <footer class="simple-footer">
+      <div class="footer-content">
+        <h2 class="footer-logo">Naija<span>History</span></h2>
+        <p class="tagline">
+          Preserving Nigeria's chronological milestones for the digital age.
+        </p>
+
+        <div class="footer-line"></div>
+
+        <p class="credits">
+          Built by <strong>Samsondeen Mukaila</strong> during IT at the Ondo
+          State House of Assembly Complex.
+        </p>
+        <p class="copyright">&copy; 2026 NaijaHistory</p>
+      </div>
+    </footer>
+    <script src="milestones.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

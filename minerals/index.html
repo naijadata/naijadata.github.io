@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NaijaMinerals | Digital Inventory of Nigeria's Mineral Wealth</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo-wrapper">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 400 100"
+          class="main-logo"
+        >
+          <!-- Custom Mineral/Crystal Icon -->
+          <rect x="10" y="10" width="80" height="80" rx="15" fill="#008751" />
+          <path
+            d="M50 25 L70 45 L50 65 L30 45 Z"
+            fill="none"
+            stroke="white"
+            stroke-width="5"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M50 25 L50 65 M30 45 L70 45"
+            stroke="rgba(255,255,255,0.6)"
+            stroke-width="3"
+          />
+          <circle cx="50" cy="45" r="5" fill="#FFD700" />
+
+          <!-- Title Text -->
+          <text
+            x="110"
+            y="62"
+            font-family="'Playfair Display', serif"
+            font-weight="bold"
+            font-size="38"
+            fill="#1a1a1a"
+          >
+            Naija
+            <tspan fill="#008751">Minerals</tspan>
+          </text>
+
+          <!-- Tagline -->
+          <text
+            x="112"
+            y="85"
+            font-family="'Inter', sans-serif"
+            font-size="11"
+            letter-spacing="2"
+            fill="#666"
+            font-weight="600"
+          >
+            GEOLOGICAL INVENTORY • ARCHIVE
+          </text>
+        </svg>
+      </div>
+      <p>
+        Explore the Distribution, Chemistry, and Industrial Uses of Nigeria's
+        Solid Minerals
+      </p>
+    </header>
+
+    <div class="container">
+      <!-- Search & Filters Section -->
+      <section class="search-section">
+        <div class="search-group">
+          <div class="search-input-wrapper">
+            <input
+              type="text"
+              id="keywordSearch"
+              placeholder="Search by Town, LGA, State, or Mineral Name (e.g. Gold, Ijero, Kogi)..."
+              oninput="handleSearch()"
+            />
+          </div>
+
+          <div class="filter-dropdowns">
+            <select id="stateFilter" onchange="handleSearch()">
+              <option value="">All States</option>
+              <!-- Populated dynamically via JS -->
+            </select>
+
+            <select id="mineralFilter" onchange="handleSearch()">
+              <option value="">All Minerals</option>
+              <!-- Populated dynamically via JS -->
+            </select>
+
+            <select id="zoneFilter" onchange="handleSearch()">
+              <option value="">All Zones</option>
+              <option value="A">Zone A (North West / North Central)</option>
+              <option value="B">Zone B (North East / Kano / Katsina)</option>
+              <option value="C">Zone C (Yobe / Borno / Gombe)</option>
+              <option value="D">Zone D (Middle Belt / West Coast)</option>
+              <option value="E">Zone E (Plateau / Nasarawa)</option>
+              <option value="F">Zone F (Kogi / Edo / South West)</option>
+              <option value="G">Zone G (South East / Delta Coast)</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Active Status & Count -->
+      <div class="results-meta">
+        <div id="resultsCount">Loading solid mineral directory...</div>
+        <button
+          id="clearFiltersBtn"
+          class="clear-btn"
+          onclick="clearFilters()"
+          style="display: none"
+        >
+          Clear Filters
+        </button>
+      </div>
+
+      <!-- Mineral Cards Grid -->
+      <div id="mineralGrid" class="mineral-grid"></div>
+
+      <!-- Pagination Controls -->
+      <div id="pagination" class="pagination"></div>
+    </div>
+
+    <!-- Interactive Details Modal -->
+    <div id="mineralModal" class="modal-overlay" onclick="closeModal(event)">
+      <div class="modal-card" onclick="event.stopPropagation()">
+        <button class="close-modal-btn" onclick="toggleModal(false)">
+          &times;
+        </button>
+
+        <div class="modal-body">
+          <div class="modal-visual-column">
+            <div id="modalMineralGraphic" class="mineral-graphic-container">
+              <!-- Rendered via JS -->
+            </div>
+            <div class="location-badge-stack">
+              <span class="loc-badge state-badge" id="modalStateBadge"
+                >State</span
+              >
+              <span class="loc-badge lga-badge" id="modalLgaBadge">LGA</span>
+              <span class="loc-badge zone-badge" id="modalZoneBadge">Zone</span>
+            </div>
+          </div>
+
+          <div class="modal-info-column">
+            <h2 id="modalTitle">Mineral Name</h2>
+            <div class="mineral-formula-wrapper">
+              <span class="chemical-symbol" id="modalSymbol">Au</span>
+              <span class="town-label" id="modalTown">Town Name</span>
+            </div>
+
+            <hr class="modal-divider" />
+
+            <div class="info-section">
+              <h3>What It Is</h3>
+              <p id="modalDescription">Detailed description of the mineral.</p>
+            </div>
+
+            <div class="info-section">
+              <h3>Key Facts</h3>
+              <ul id="modalFacts" class="facts-list">
+                <!-- Populated dynamically via JS -->
+              </ul>
+            </div>
+
+            <div class="info-section">
+              <h3>Industrial & Commercial Uses</h3>
+              <p id="modalUses">
+                How this mineral drives economic growth and value chains.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="simple-footer">
+      <div class="footer-content">
+        <h2 class="footer-logo">Naija<span>Minerals</span></h2>
+        <p class="tagline">
+          Mapping Nigeria's geological wealth for research, development, and
+          sustainable investment.
+        </p>
+        <div class="footer-line"></div>
+        <p class="credits">Compiled by <strong>Samsondeen Mukaila</strong>.</p>
+        <p class="copyright">&copy; 2026 NaijaMinerals Digital Archive</p>
+      </div>
+    </footer>
+
+    <script src="./mineral-data.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,245 @@
+    :root {
+       --primary-green: #008751;
+       --gold: #ffd700;
+       --paper: #f9f7f2;
+       --ink: #1a2421;
+       --border: #e0ddd5;
+       --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+   }
+   
+   body {
+       margin: 0;
+       font-family: "Inter", sans-serif;
+       background-color: #edf1ed;
+       color: var(--ink);
+       display: flex;
+       flex-direction: column;
+       height: 100vh;
+   }
+   /* Branding Header */
+   
+   header {
+       background: white;
+       padding: 0.8rem 2rem;
+       border-bottom: 4px solid var(--primary-green);
+       box-shadow: var(--shadow);
+       z-index: 100;
+   }
+   
+   .header-container {
+       max-width: 1400px;
+       margin: 0 auto;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+   }
+   
+   .logo-area {
+       display: flex;
+       align-items: center;
+       gap: 15px;
+   }
+   
+   .logo-icon {
+       width: 45px;
+       height: 45px;
+   }
+   
+   .logo-area h1 {
+       font-size: 1.5rem;
+       margin: 0;
+       font-weight: 800;
+   }
+   
+   .logo-area span {
+       color: var(--primary-green);
+   }
+   
+   .search-container input {
+       width: 400px;
+       padding: 12px 25px;
+       border-radius: 30px;
+       border: 2px solid var(--border);
+       outline: none;
+       transition: 0.3s;
+       font-size: 1rem;
+   }
+   
+   .search-container input:focus {
+       border-color: var(--primary-green);
+   }
+   /* Dashboard Layout */
+   
+   .app-shell {
+       display: flex;
+       flex: 1;
+       overflow: hidden;
+       max-width: 1600px;
+       margin: 0 auto;
+       width: 100%;
+   }
+   /* CRUD Sidebar */
+   
+   .admin-sidebar {
+       width: 400px;
+       background: white;
+       border-right: 1px solid var(--border);
+       padding: 25px;
+       overflow-y: auto;
+   }
+   
+   .admin-sidebar h2 {
+       font-size: 1.1rem;
+       color: var(--primary-green);
+       margin-top: 0;
+       border-bottom: 2px solid #eee;
+       padding-bottom: 10px;
+   }
+   
+   form {
+       display: flex;
+       flex-direction: column;
+       gap: 12px;
+   }
+   
+   input,
+   textarea {
+       padding: 12px;
+       border: 1px solid var(--border);
+       border-radius: 6px;
+       font-family: inherit;
+       font-size: 0.9rem;
+   }
+   
+   button#saveBtn {
+       background: var(--primary-green);
+       color: white;
+       border: none;
+       padding: 15px;
+       border-radius: 6px;
+       font-weight: 800;
+       cursor: pointer;
+       text-transform: uppercase;
+       letter-spacing: 1px;
+       transition: 0.2s;
+   }
+   
+   button#saveBtn:hover {
+       background: #006b40;
+       transform: translateY(-2px);
+   }
+   /* Main Feed */
+   
+   .fact-feed {
+       flex: 1;
+       padding: 40px;
+       overflow-y: auto;
+       scroll-behavior: smooth;
+   }
+   
+   .stats-bar {
+       margin-bottom: 20px;
+       font-weight: 600;
+       color: var(--primary-green);
+       font-size: 0.9rem;
+   }
+   /* The Physical Card Aesthetic */
+   
+   .index-card {
+       background: var(--paper);
+       border: 1px solid var(--border);
+       border-radius: 4px;
+       padding: 35px 40px;
+       margin-bottom: 30px;
+       position: relative;
+       box-shadow: 6px 6px 0px rgba(0, 135, 81, 0.1);
+       transition: 0.3s;
+   }
+   
+   .card-subject {
+       font-size: 0.8rem;
+       font-weight: 900;
+       color: var(--primary-green);
+       text-transform: uppercase;
+       letter-spacing: 2px;
+       margin-bottom: 15px;
+       display: block;
+   }
+   
+   .card-fact {
+       font-family: "Lora", serif;
+       font-size: 1.4rem;
+       line-height: 1.7;
+       color: var(--ink);
+       margin-bottom: 25px;
+   }
+   
+   .card-meta {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       border-top: 1px solid rgba(0, 0, 0, 0.05);
+       padding-top: 15px;
+       font-size: 0.85rem;
+       color: #666;
+       font-style: italic;
+   }
+   
+   .card-actions {
+       margin-top: 20px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+   }
+   
+   .btn-link {
+       text-decoration: none;
+       color: var(--primary-green);
+       font-weight: 700;
+       font-size: 0.85rem;
+       display: flex;
+       align-items: center;
+       gap: 5px;
+   }
+   
+   .btn-delete {
+       background: none;
+       border: 1px solid #ffcccc;
+       color: #cc0000;
+       padding: 4px 10px;
+       border-radius: 4px;
+       cursor: pointer;
+       font-size: 0.7rem;
+   }
+   
+   .btn-delete:hover {
+       background: #fee;
+   }
+   
+   .card-hole {
+       width: 18px;
+       height: 18px;
+       background: #edf1ed;
+       border-radius: 50%;
+       position: absolute;
+       bottom: 12px;
+       left: 50%;
+       transform: translateX(-50%);
+       border: 1px solid var(--border);
+   }
+   
+   .tag {
+       display: inline-block;
+       background: #e2e8e2;
+       padding: 3px 10px;
+       border-radius: 4px;
+       font-size: 0.7rem;
+       color: #444;
+       margin-right: 5px;
+       font-style: normal;
+       border: 1px solid #ccd5cc;
+   }
+   
+   .hidden {
+       display: none;
+   }
